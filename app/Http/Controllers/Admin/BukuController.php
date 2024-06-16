@@ -15,7 +15,7 @@ class BukuController extends Controller
     public function index()
     {
         $data = Buku::orderBy('kode_buku', 'asc')->paginate(5);
-        return view('admin/buku', compact('data'));
+        return view('admin.buku.index', compact('data'));
     }
 
     /**
@@ -23,7 +23,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('admin/create');
+        return view('admin.buku.create');
     }
 
     /**
@@ -72,7 +72,7 @@ class BukuController extends Controller
     public function show(string $id)
     {
         $data = Buku::where('kode_buku', $id)->first();
-        return view('admin/detail', compact('data'));
+        return view('admin.buku.detail', compact('data'));
     }
 
     /**
@@ -81,7 +81,7 @@ class BukuController extends Controller
     public function edit(string $id)
     {
         $data = Buku::where('kode_buku', $id)->first();
-        return view('admin/edit', compact('data'));
+        return view('admin.buku.edit', compact('data'));
     }
 
     /**

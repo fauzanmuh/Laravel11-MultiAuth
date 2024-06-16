@@ -11,7 +11,6 @@
             <img src="{{ url('foto').'/'.$data->foto }}" class="w-1/3 object-cover">
             @endif
             <div class="p-6 w-2/3">
-                <h1 class="text-3xl font-bold mb-4">{{ $data->kode_buku }}</h1>
                 <h1 class="text-3xl font-bold mb-4">{{ $data->judul }}</h1>
                 <h2 class="text-xl font-semibold mb-2">Penulis: {{ $data->penulis }}</h2>
                 <h2 class="text-xl font-semibold mb-2">Penerbit: {{ $data->penerbit }}</h2>
