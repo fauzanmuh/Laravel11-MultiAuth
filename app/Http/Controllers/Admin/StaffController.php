@@ -101,7 +101,7 @@ class StaffController extends Controller
             'alamat' => $request->input('alamat'),
             'no_hp' => $request->input('no_hp'),
         ];
-        
+
         Staff::where('nik', $id)->update($data);
         return redirect('admin/staff')->with('success', 'Staff Berhasil Disimpan');
     }

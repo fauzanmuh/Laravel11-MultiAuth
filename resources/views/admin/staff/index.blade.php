@@ -1,12 +1,16 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Staff') }}
-        </h2>
+        
     </x-slot>
 
-    <a href="/admin/staff/create" class="btn btn-primary">Tambah</a>
-    <hr>
+    <div class="container mx-auto p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold">Daftar Staff</h1>
+            <div>
+                <a href="/admin/staff/create" class="btn btn-primary mr-2">Tambah</a>
+                <a href="/admin/staff/cetak" class="btn btn-secondary">Cetak PDF</a>
+            </div>
+        </div>
     <table class="table">
         <thead>
             <tr>
