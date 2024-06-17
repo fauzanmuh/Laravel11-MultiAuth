@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BukuController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\FavoriteController;
 use App\Http\Controllers\User\UserController;
@@ -30,10 +31,5 @@ Route::middleware(['auth', 'UserMiddleware'])->group(function () {
 Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::resource('/admin/buku', BukuController::class);
-    // Route::get('/admin/buku', [BukuController::class, 'index'])->name('admin.buku');
-    // Route::post('/admin/buku', [BukuController::class, 'store']);
-    // Route::get('/admin/buku-create', [BukuController::class, 'create'])->name('admin.buku-create');
-    // Route::get('/admin/buku/{id}', [BukuController::class, 'show'])->name('admin.buku-detail');
-    // Route::put('/admin/buku/{id}/edit', [BukuController::class, 'update'])->name('admin.buku-edit');
-    // Route::get('/admin/buku/{id}/delete', [BukuController::class, 'destroy'])->name('admin.buku-hapus');
+    Route::resource('/admin/staff', StaffController::class);
 });

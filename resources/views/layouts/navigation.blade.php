@@ -22,11 +22,11 @@
                         {{ __('Buku') }}
                     </x-nav-link>
 
-                    {{-- <x-nav-link href="{{ route('admin.kategori')}}" :active="request()->routeIs('admin.kategori')">
-                        {{ __('Kategori') }}
+                    <x-nav-link href="/admin/staff">
+                        {{ __('Staff') }}
                     </x-nav-link>
 
-                    <x-nav-link href="{{ route('admin.user')}}" :active="request()->routeIs('admin.user')">
+                    {{-- <x-nav-link href="{{ route('admin.user')}}" :active="request()->routeIs('admin.user')">
                         {{ __('User') }}
                     </x-nav-link> --}}
                     @endif
