@@ -62,8 +62,18 @@
                 @if (Route::has('login'))
                 @auth
                 <div class="d-flex mt-3 ms-3 mt-md-0 ms-md-0">
-                    <a href="{{ url('/dashboard') }}" class="nav-link mx-3">Dashboard
+                    @if (Auth::user()->usertype == 'admin')
+                    <a href="/admin/dashboard" class="nav-link mx-3">
+                        {{ __('Dashboard') }}
                     </a>
+                    @endif
+                    @if (Auth::user()->usertype == 'user')
+                    <a href="/dashboard" class="nav-link mx-3">
+                        {{ __('Dashboard') }}
+                    </a>
+                    @endif
+                    {{-- <a href="{{ url('/dashboard') }}" class="nav-link mx-3">Dashboard
+                    </a> --}}
                     @else
                     <a href="{{ route('login') }}"
                     class="nav-link mx-3">Log in
