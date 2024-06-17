@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Staff;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -113,5 +114,22 @@ class StaffController extends Controller
     {
         Staff::where('nik', $id)->delete();
         return redirect('admin/staff')->with('success', 'Staff Berhasil Dihapus');
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->input('cari');
+        $data = Staff::where('nama', 'like', "%" . $cari . "%")
+        ->orWhere('email', 'like', "%" . $cari . "%")
+        ->orWhere('nik', 'like', "%" . $cari . "%")
+        ->paginate(5);
+        return view('admin.staff.index', compact('data'));
+    }
+
+    public function pdf()
+    {
+        $staff = Staff::all();
+        $pdf = Pdf::loadView('admin/staff/pdf',['staff' => $staff])->setPaper('a4', 'landscape');;
+        return $pdf->download('Daftar-Staff.pdf');
     }
 }

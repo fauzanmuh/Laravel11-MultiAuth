@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Buku;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        $data = Buku::orderBy('kode_buku', 'asc')->paginate(5);
+        $data = Buku::orderBy('kode_buku', 'asc')->paginate(10);
         return view('admin.buku.index', compact('data'));
     }
 
@@ -137,5 +138,22 @@ class BukuController extends Controller
         File::delete('foto/' . $data->foto);
         Buku::where('kode_buku', $id)->delete();
         return redirect('admin/buku')->with('success', 'Buku Berhasil Dihapus');
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->input('cari');
+        $data = Buku::where('judul', 'like', "%" . $cari . "%")
+        ->orWhere('penulis', 'like', "%" . $cari . "%")
+        ->orWhere('penerbit', 'like', "%" . $cari . "%")
+        ->paginate(2);
+        return view('admin.buku.index', compact('data'));
+    }
+
+    public function pdf()
+    {
+        $buku = Buku::all();
+        $pdf = Pdf::loadView('admin/buku/pdf',['buku' => $buku])->setPaper('a4', 'landscape');;
+        return $pdf->download('Daftar-Buku.pdf');
     }
 }

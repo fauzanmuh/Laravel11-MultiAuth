@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BukuController;
-use App\Http\Controllers\Admin\CetakController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\FavoriteController;
@@ -31,7 +30,10 @@ Route::middleware(['auth', 'UserMiddleware'])->group(function () {
 // Admin Routes
 Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/staff/cetak', [CetakController::class, 'pdf']);
+    Route::get('/admin/staff/cetak', [StaffController::class, 'pdf']);
+    Route::get('/admin/staff/cari', [StaffController::class, 'cari']);
+    Route::get('/admin/buku/cetak', [BukuController::class, 'pdf']);
+    Route::get('/admin/buku/cari', [BukuController::class, 'cari']);
     Route::resource('/admin/buku', BukuController::class);
     Route::resource('/admin/staff', StaffController::class);
 });
