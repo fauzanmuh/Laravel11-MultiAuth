@@ -1,11 +1,15 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Buku') }}
-        </h2>
     </x-slot>
 
-    <a href="/admin/buku/create" class="btn btn-primary">Tambah</a>
+    <div class="container mx-auto p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h1 class="text-2xl font-bold">Daftar Buku</h1>
+            <div>
+                <a href="/admin/buku/create" class="btn btn-primary">Tambah</a>
+            </div>
+        </div>
+    
     <hr>
     <table class="table">
         <thead>
@@ -30,14 +34,14 @@
                         @if ($s->foto)
                             <img src="{{ url('foto').'/'.$s->foto }}" width="45px"></td>
                         @endif
-                        <td>{{ $s->penerbit }}</td>
+                        <td>{{ Str::limit($s->deskripsi, 20) }}</td>
                     <td>
-                        <a href="/admin/buku/{{ $s->kode_buku }}" class="btn btn-primary">Detail</a>
-                        <a href="/admin/buku/{{ $s->kode_buku }}/edit" class="btn btn-warning">Edit</a>
+                        <a href="/admin/buku/{{ $s->kode_buku }}" class="btn btn-sm btn-primary">Detail</a>
+                        <a href="/admin/buku/{{ $s->kode_buku }}/edit" class="btn btn-sm btn-warning">Edit</a>
                         <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')" action="/admin/buku/{{ $s->kode_buku }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                         </form>
                     </td>
                 </tr>

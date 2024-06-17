@@ -1,6 +1,5 @@
 <x-app-layout>
     <x-slot name="header">
-        
     </x-slot>
 
     <div class="container mx-auto p-6">
@@ -31,12 +30,12 @@
                     <td>{{ $s->alamat }}</td>
                     <td>{{ $s->no_hp }}</td>
                     <td>
-                        <a href="/admin/staff/{{ $s->nik }}" class="btn btn-primary">Detail</a>
-                        <a href="/admin/staff/{{ $s->nik }}/edit" class="btn btn-warning">Edit</a>
+                        <a href="/admin/staff/{{ $s->nik }}" class="btn btn-sm btn-primary">Detail</a>
+                        <a href="/admin/staff/{{ $s->nik }}/edit" class="btn btn-sm btn-warning">Edit</a>
                         <form onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')" action="/admin/staff/{{ $s->nik }}" method="post" class="d-inline">
                             @method('delete')
                             @csrf
-                            <button type="submit" class="btn btn-danger">Hapus</button>
+                            <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
                         </form>
                     </td>
                 </tr>
