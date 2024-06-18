@@ -25,10 +25,6 @@
                     <x-nav-link href="/admin/staff">
                         {{ __('Staff') }}
                     </x-nav-link>
-
-                    {{-- <x-nav-link href="{{ route('admin.user')}}" :active="request()->routeIs('admin.user')">
-                        {{ __('User') }}
-                    </x-nav-link> --}}
                     @endif
 
                     {{-- User Link --}}
@@ -98,9 +94,27 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+            <x-responsive-nav-link :href="Auth::user()->usertype == 'admin' ? route('admin.dashboard') : route('dashboard')" :active="Auth::user()->usertype == 'admin' ? request()->routeIs('admin.dashboard') : request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            {{-- Admin Link --}}
+            @if (Auth::user()->usertype == 'admin')
+            <x-responsive-nav-link href="/admin/buku">
+                {{ __('Buku') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="/admin/staff">
+                {{ __('Staff') }}
+            </x-responsive-nav-link>
+            @endif
+
+            {{-- User Link --}}
+            @if (Auth::user()->usertype == 'user')
+            <x-responsive-nav-link href="calculator" :active="request()->routeIs('user.calculator')">
+                {{ __('Kalkulator') }}
+            </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
