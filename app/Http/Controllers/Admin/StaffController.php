@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\StaffExport;
 use App\Http\Controllers\Controller;
 use App\Models\Staff;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StaffController extends Controller
 {
@@ -131,5 +133,10 @@ class StaffController extends Controller
         $staff = Staff::all();
         $pdf = Pdf::loadView('admin/staff/pdf',['staff' => $staff])->setPaper('a4', 'landscape');;
         return $pdf->download('Daftar-Staff.pdf');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new StaffExport, 'Daftar-Staff.xlsx');
     }
 }

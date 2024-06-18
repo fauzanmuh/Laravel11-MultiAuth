@@ -9,8 +9,9 @@
                     <div class="flex items-center">
                         <input type="text" name="cari" class="border border-gray-300 rounded-md px-2 py-1 mr-2"
                             placeholder="Cari staff...">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="submit" class="btn btn-info">Cari</button>
                         <a href="/admin/staff/create" class="btn btn-primary ml-2">Tambah</a>
+                        <a href="/admin/staff/exportExcel" class="btn btn-success ml-2">Export Excel</a>
                         <a href="/admin/staff/cetak" class="btn btn-secondary ml-2">Cetak PDF</a>
                     </div>
                 </form>

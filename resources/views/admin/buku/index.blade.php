@@ -9,7 +9,7 @@
                     <div class="flex items-center">
                         <input type="text" name="cari" class="border border-gray-300 rounded-md px-2 py-1 mr-2"
                             placeholder="Cari buku...">
-                        <button type="submit" class="btn btn-primary">Cari</button>
+                        <button type="submit" class="btn btn-info">Cari</button>
                         <a href="/admin/buku/create" class="btn btn-primary ml-2">Tambah</a>
                         <a href="/admin/buku/cetak" class="btn btn-secondary ml-2">Cetak PDF</a>
                     </div>

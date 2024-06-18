@@ -31,6 +31,7 @@ Route::middleware(['auth', 'UserMiddleware'])->group(function () {
 Route::middleware(['auth', 'AdminMiddleware'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/staff/cetak', [StaffController::class, 'pdf']);
+    Route::get('/admin/staff/exportExcel', [StaffController::class, 'exportExcel']);
     Route::get('/admin/staff/cari', [StaffController::class, 'cari']);
     Route::get('/admin/buku/cetak', [BukuController::class, 'pdf']);
     Route::get('/admin/buku/cari', [BukuController::class, 'cari']);
