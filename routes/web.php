@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BukuController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\CalculatorController;
 use App\Http\Controllers\User\FavoriteController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Middleware\UserMiddleware;
@@ -24,7 +25,8 @@ require __DIR__ . '/auth.php';
 // User Routes
 Route::middleware(['auth', 'UserMiddleware'])->group(function () {
     Route::get('dashboard', [UserController::class, 'index'])->name('dashboard');
-    Route::get('favorite', [FavoriteController::class, 'index'])->name('user.favorite');
+    Route::get('/calculator', [CalculatorController::class, 'index']);
+    Route::post('/calculator/hitung', [CalculatorController::class, 'hitung']);
 });
 
 // Admin Routes

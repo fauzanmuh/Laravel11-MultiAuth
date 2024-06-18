@@ -33,12 +33,8 @@
 
                     {{-- User Link --}}
                     @if (Auth::user()->usertype == 'user')
-                    <x-nav-link href="favorite" :active="request()->routeIs('user.favorite')">
-                        {{ __('Favorite') }}
-                    </x-nav-link>
-
-                    <x-nav-link href="order" :active="request()->routeIs('user.order')">
-                        {{ __('Order') }}
+                    <x-nav-link href="calculator" :active="request()->routeIs('user.calculator')">
+                        {{ __('Kalkulator') }}
                     </x-nav-link>
                     @endif
                 </div>
