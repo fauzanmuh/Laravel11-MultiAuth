@@ -148,27 +148,28 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <!-- Card 1 -->
             <div class="bg-teal-500 p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-bold mb-4">{{ $buku }} Buku</h3>
-                <h6 class="text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati maxime,
+                <h3 class="text-xl font-bold mb-4 text-center">{{ $buku }} Buku</h3>
+                <h6 class="text-sm mb-4 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati maxime,
                     voluptas fugit ipsa, ex officiis illum fugiat numquam expedita labore ducimus sunt voluptates
                     molestiae deleniti debitis doloremque porro, inventore dolores.</h6>
                 <a href="/admin/buku" class="small-box-footer">
-                    <p class="text-blue-700">More Info</p><i class="fas fa-arrow-circle-right"></i>
+                    <p class="text-blue-700 text-center">More Info</p><i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
             <!-- Card 2 -->
             <div class="bg-cyan-500 p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-bold mb-4">{{ $staff }} Staff</h3>
-                <h6 class="text-sm mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias culpa eum,
+                <h3 class="text-xl font-bold mb-4 text-center">{{ $staff }} Staff</h3>
+                <h6 class="text-sm mb-4 text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias culpa eum,
                     cupiditate consequatur eaque nulla, ea earum autem saepe nesciunt similique architecto repellendus.
                     Aperiam, dolor. Sint quis nesciunt quos minus.</h6>
                 <a href="/admin/staff" class="small-box-footer">
-                    <p class="text-blue-700">More Info</p><i class="fas fa-arrow-circle-right"></i>
+                    <p class="text-blue-700 text-center">More Info</p><i class="fas fa-arrow-circle-right"></i>
                 </a>
             </div>
             <!-- Add more cards as needed -->
         </div>
     </div>
+    
     <div id="idx-calendar">
         <div id="calendar-control">
             <div id="monthNow"></div>

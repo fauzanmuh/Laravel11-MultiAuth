@@ -9,9 +9,9 @@
                     <div class="flex items-center">
                         <input type="text" name="cari" class="border border-gray-300 rounded-md px-2 py-1 mr-2"
                             placeholder="Cari buku...">
-                        <button type="submit" class="btn btn-info">Cari</button>
-                        <a href="/admin/buku/create" class="btn btn-primary ml-2">Tambah</a>
-                        <a href="/admin/buku/cetak" class="btn btn-secondary ml-2">Cetak PDF</a>
+                        <button type="submit" class="btn btn-outline-info">Cari</button>
+                        <a href="/admin/buku/create" class="btn btn-outline-primary ml-2">Tambah</a>
+                        <a href="/admin/buku/cetak" class="btn btn-outline-secondary ml-2">Cetak PDF</a>
                     </div>
                 </form>
             </div>
@@ -19,19 +19,19 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Kode Buku</th>
-                    <th>Judul</th>
-                    <th>Penulis</th>
-                    <th>Penerbit</th>
-                    <th>Foto</th>
-                    <th>Deskripsi</th>
-                    <th>Aksi</th>
+                    <th class="text-center">Kode Buku</th>
+                    <th class="text-center">Judul</th>
+                    <th class="text-center">Penulis</th>
+                    <th class="text-center">Penerbit</th>
+                    <th class="text-center">Foto</th>
+                    <th class="text-center">Deskripsi</th>
+                    <th class="text-right">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($data as $s)
                     <tr>
-                        <td>{{ $s->kode_buku }}</td>
+                        <td class="text-center">{{ $s->kode_buku }}</td>
                         <td>{{ $s->judul }}</td>
                         <td>{{ $s->penulis }}</td>
                         <td>{{ $s->penerbit }}</td>
